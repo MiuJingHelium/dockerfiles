@@ -1,0 +1,7 @@
+#!/bin/bash
+
+export LSF_DOCKER_VOLUMES="/storage1/fs1/martyomov/Active:/storage1/fs1/martyomov/Active /scratch1/fs1/martyomov:/scratch1/fs1/martyomov /home/carisa:/home/carisa"
+
+SMK_DOCKER_IMG=$1
+
+bsub -cwd $HOME	-Is -G compute-martyomov -q general-interactive -a "docker($SMK_DOCKER_IMG)" /bin/bash -l
