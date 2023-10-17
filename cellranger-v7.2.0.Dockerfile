@@ -22,14 +22,14 @@ RUN apt-get install -y \
 
 WORKDIR /apps
 
-RUN curl -o cellranger-7.2.0.tar.gz "https://cf.10xgenomics.com/releases/cell-exp/cellranger-7.2.0.tar.gz?Expires=1696649560&Key-Pair-Id=APKAI7S6A5RYOXBWRPDA&Signature=CqCzs1OFl997NA5zXHESzQvntZrLGx2eI1tI4UjKyxT9JeEFHeb1ThO8EtazFZydwUTsl48FbLypVnrXK4qqdiTAo1fXuKpKciP0YTBZcj04nrpqxHMcSz2QuRxS~N4uEg-lNx2DqWI4I67NgSye22FlwuA0RIzoBSxIOOCjdFfwiRtha74QiU-mvhNyGFUcVmvyCurION9Zna9kDDN4dqh~-XbHLgwcI8OEV-NMA9igZXnVA2y07-6i2uNLF5fPyCaNNcSG769NQpjWSamy3Ml4CVFVlv7gNg7vpoT-c61dtmNZ3B0gXjsaHHYbmJ8tMp-njWHi9z4ni6E-zI0G9Q__"
+RUN curl -o cellranger-7.2.0.tar.gz "https://cf.10xgenomics.com/releases/cell-exp/cellranger-7.2.0.tar.gz?Expires=1697607156&Key-Pair-Id=APKAI7S6A5RYOXBWRPDA&Signature=NjqwU-WSckpj8YZ-pT56H5aA3lpqDwV7w-URYspZZu2joct4mN6VrVndD01hUbWpCfyKSIdwm88anlFLNVYR5FpCjL9ecj2l5FgOyV6tKYZJQg0v-dlScPP5NSpKcUgPCuQD0-2cq2keH3iy3946bAAONVsRqMDsNNv--BI0w3q2Pu5AK5gI4AGkh5zMmGPcKlX6alcWfoDLXot-QVsO5xXW-n~wDuDc-uUDKfxmyhDB80CuTVFs6L9YGmBm3iHULb8sz8gbdpeVu69MKEf26nIv~XgaiUWogQ~MDAwoMLgL5A8iTjavB3xAou2fLeegt7Nz-Ynuyd5bRVp7pAfNig__"
 
 
-RUN tar xzf cellranger-7.2.0.tar.gz \
+RUN tar -xvzf cellranger-7.2.0.tar.gz \
     && rm -rf cellranger-7.2.0.tar.gz
 
-#ENV PATH /apps/cellranger-7.2.0:$PATH
+ENV PATH /apps/cellranger-7.2.0:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 RUN echo 'export PATH="$PATH:/apps/cellranger-7.2.0"' >> /etc/bash.bashrc
 #ENTRYPOINT ["cellranger"]
-CMD ["/bin/bash"]
+CMD ["bash","cellranger"]
 
