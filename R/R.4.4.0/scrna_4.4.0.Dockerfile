@@ -12,7 +12,7 @@ RUN R --no-echo --no-restore --no-save -e "remotes::install_github(repo='ctlab/S
 
 # Additional tools
 # Somehow some packages need to be installed first...
-RUN R --no-echo --no-restore --no-save -e "remotes::install_cran('caret')"
+# RUN R --no-echo --no-restore --no-save -e "remotes::install_cran('caret')"
 RUN R --no-echo --no-restore --no-save -e "remotes::install_cran(c('caret', 'ggpubr', 'colorspace'))"
 RUN R --no-echo --no-restore --no-save -e "remotes::install_version('scCustomize', version = '2.0.1', repos = 'http://cran.us.r-project.org')"
 RUN R --no-echo --no-restore --no-save -e "remotes::install_cran(c('svglite', 'ggvenn', 'UpSetR', 'ggvenn', 'pheatmap', 'ggExtra', 'eulerr'))"
