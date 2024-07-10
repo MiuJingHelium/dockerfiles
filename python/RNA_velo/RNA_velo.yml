@@ -1,0 +1,24 @@
+name: RNA_velo
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.8
+  - numpy 
+  - scipy 
+  - cython 
+  - numba 
+  - matplotlib 
+  - scikit-learn 
+  - h5py 
+  - click
+  - notebook
+  - pip
+  - pip:
+    - pysam
+    - igraph
+    - louvain
+    - pybind11
+    - hnswlib
+    - velocyto==0.17.17
+    - scvelo==0.3.2
