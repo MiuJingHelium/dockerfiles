@@ -25,7 +25,8 @@ RUN wget https://github.com/samtools/samtools/releases/download/1.20/samtools-1.
     make && \
     make install
 
-RUN export PATH=/opt/samtools/bin:$PATH
+ENV PATH="/opt/samtools/bin:${PATH}"
+ARG PATH="/opt/samtools/bin:${PATH}"
 
 ### create a virtual environment for package installation
 CMD ["/bin/bash"]
